@@ -6,12 +6,14 @@ resource "aws_lightsail_container_service" "container_service" {
   dynamic "public_domain_names" {
     for_each = var.hostname == null ? [] : [var.hostname]
 
-    certificate {
-      certificate_name = "${public_domain_names.value}-certificate"
-      domain_names = [
-        public_domain_names.value,
-        "www.${public_domain_names.value}"
-      ]
+    content {
+      certificate {
+        certificate_name = "${public_domain_names.value}-certificate"
+        domain_names = [
+          public_domain_names.value,
+          "www.${public_domain_names.value}"
+        ]
+      }
     }
   }
 }
