@@ -2,6 +2,18 @@ resource "aws_lightsail_container_service" "container_service" {
   name  = local.container.service_name
   power = local.container.power
   scale = local.container.scale
+
+  dynamic "public_domain_names" {
+    for_each = var.hostname == null ? [] : [var.hostname]
+
+    certificate {
+      certificate_name = "${public_domain_names.value}-certificate"
+      domain_names = [
+        public_domain_names.value,
+        "www.${public_domain_names.value}"
+      ]
+    }
+  }
 }
 
 resource "aws_lightsail_container_service_deployment_version" "container_deployment" {
