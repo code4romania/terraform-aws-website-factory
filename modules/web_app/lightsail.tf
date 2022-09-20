@@ -8,7 +8,7 @@ resource "aws_lightsail_container_service" "container_service" {
 
     content {
       certificate {
-        certificate_name = "${public_domain_names.value}-certificate"
+        certificate_name = public_domain_names.value
         domain_names = [
           public_domain_names.value,
           "www.${public_domain_names.value}"
