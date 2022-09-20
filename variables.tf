@@ -56,12 +56,6 @@ variable "ses_domain" {
   default     = null
 }
 
-
-variable "mail_from_address" {
-  description = "Mail from address"
-  type        = string
-}
-
 variable "admin_email" {
   description = "Email address of initial admin account"
   type        = string
