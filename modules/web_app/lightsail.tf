@@ -27,7 +27,7 @@ resource "aws_lightsail_container_service_deployment_version" "container_deploym
     image          = "${local.container.docker_image}:${var.docker_tag}"
 
     environment = {
-      "APP_URL"                 = var.hostname == null ? null : "https://${var.hostname}"
+      "APP_URL"                 = local.app_url
       "APP_DEBUG"               = var.debug_mode
       "APP_ENV"                 = var.env
       "APP_KEY"                 = random_password.app_key.result

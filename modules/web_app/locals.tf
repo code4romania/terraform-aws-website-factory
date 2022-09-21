@@ -2,7 +2,7 @@ locals {
   namespace_prefix = "wf-"
   namespace_suffix = var.env == "production" ? "" : "-${var.env}"
   namespace        = "${local.namespace_prefix}${var.project_slug}${local.namespace_suffix}"
-  hostname         = var.hostname != null ? var.hostname : "${local.namespace}.awslightsail.TODO"
+  app_url          = replace(var.hostname != null ? "https://${var.hostname}" : aws_lightsail_container_service.container_service.url, "/\\/$/", "")
 
   container = {
     power           = "micro"
