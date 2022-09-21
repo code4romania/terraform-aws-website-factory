@@ -1,5 +1,5 @@
 output "web_app_hostname" {
-  value = aws_lightsail_container_service.container_service.url
+  value = local.app_url
 }
 
 output "admin_password" {
