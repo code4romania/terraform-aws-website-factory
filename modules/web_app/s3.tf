@@ -9,11 +9,6 @@ resource "aws_s3_bucket" "media" {
   bucket = "${local.namespace}-${random_string.bucket_suffix.result}"
 }
 
-resource "aws_s3_bucket_acl" "media_acl" {
-  bucket = aws_s3_bucket.media.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_public_access_block" "media_public_access_block" {
   bucket = aws_s3_bucket.media.id
 
