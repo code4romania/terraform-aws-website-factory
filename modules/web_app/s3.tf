@@ -9,6 +9,14 @@ resource "aws_s3_bucket" "media" {
   bucket = "${local.namespace}-${random_string.bucket_suffix.result}"
 }
 
+resource "aws_s3_bucket_ownership_controls" "this" {
+  bucket = aws_s3_bucket.media.id
+
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "media_public_access_block" {
   bucket = aws_s3_bucket.media.id
 
