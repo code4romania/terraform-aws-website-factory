@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "media" {
   bucket = "${local.namespace}-${random_string.bucket_suffix.result}"
 }
 
-resource "aws_s3_bucket_ownership_controls" "this" {
+resource "aws_s3_bucket_ownership_controls" "media" {
   bucket = aws_s3_bucket.media.id
 
   rule {
