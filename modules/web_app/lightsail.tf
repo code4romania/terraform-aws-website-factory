@@ -38,12 +38,7 @@ resource "aws_lightsail_container_service_deployment_version" "container_deploym
       "DB_DATABASE"             = aws_lightsail_database.database.master_database_name
       "DB_USERNAME"             = aws_lightsail_database.database.master_username
       "DB_PASSWORD"             = aws_lightsail_database.database.master_password
-      "MAIL_MAILER"             = "smtp"
-      "MAIL_HOST"               = local.mail.host
-      "MAIL_PORT"               = local.mail.port
-      "MAIL_USERNAME"           = aws_iam_access_key.iam_user_key.id
-      "MAIL_PASSWORD"           = aws_iam_access_key.iam_user_key.ses_smtp_password_v4
-      "MAIL_ENCRYPTION"         = local.mail.encryption
+      "MAIL_MAILER"             = "ses"
       "MAIL_FROM_ADDRESS"       = local.mail.from_address
       "FILESYSTEM_DRIVER"       = "s3"
       "FILESYSTEM_CLOUD"        = "s3"
