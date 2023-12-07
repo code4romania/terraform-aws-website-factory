@@ -24,9 +24,6 @@ locals {
   ses_count = var.ses_domain != null ? 1 : 0
 
   mail = {
-    host         = "email-smtp.${var.region}.amazonaws.com"
-    port         = 587
-    encryption   = "tls"
     from_address = var.ses_domain != null ? "no-reply@${var.ses_domain}" : null
   }
 }
