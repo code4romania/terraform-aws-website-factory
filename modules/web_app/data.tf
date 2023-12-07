@@ -43,10 +43,10 @@ data "aws_iam_policy_document" "ses_email_send" {
       "SES:SendRawEmail"
     ]
 
-    resources = try(
-      [data.aws_ses_domain_identity.main[0].arn],
-      []
-    )
+    resources = compact([
+      try(data.aws_ses_domain_identity.main[0].arn, null),
+      var.ses_configuration_set_arn,
+    ])
   }
 }
 
