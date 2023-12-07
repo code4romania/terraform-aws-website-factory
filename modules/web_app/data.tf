@@ -47,11 +47,6 @@ data "aws_iam_policy_document" "ses_email_send" {
       [data.aws_ses_domain_identity.main[0].arn],
       []
     )
-
-    principals {
-      identifiers = ["*"]
-      type        = "AWS"
-    }
   }
 }
 
