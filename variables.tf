@@ -56,6 +56,12 @@ variable "ses_domain" {
   default     = null
 }
 
+variable "ses_configuration_set_arn" {
+  description = "Configuration set arn attached to `ses_domain`"
+  type        = string
+  default     = null
+}
+
 variable "admin_email" {
   description = "Email address of initial admin account"
   type        = string
