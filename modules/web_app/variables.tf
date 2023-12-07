@@ -48,6 +48,11 @@ variable "ses_domain" {
   type        = string
 }
 
+variable "ses_configuration_set_arn" {
+  description = "Configuration set arn attached to `ses_domain`"
+  type        = string
+}
+
 variable "admin_email" {
   description = "Email address of initial admin account"
   type        = string
