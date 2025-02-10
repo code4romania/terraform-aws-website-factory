@@ -40,7 +40,7 @@ variable "region" {
 }
 
 variable "availability_zone" {
-  description = "Availability zone"
+  description = "Availability zone (suffix only)"
   type        = string
   default     = "b"
 
@@ -65,4 +65,5 @@ variable "ses_configuration_set_arn" {
 variable "admin_email" {
   description = "Email address of initial admin account"
   type        = string
+  default     = null
 }
