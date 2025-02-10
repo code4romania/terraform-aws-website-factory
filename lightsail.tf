@@ -49,6 +49,8 @@ resource "aws_lightsail_container_service_deployment_version" "container_deploym
       "AWS_ACCESS_KEY_ID"       = aws_iam_access_key.iam_user_key.id
       "AWS_SECRET_ACCESS_KEY"   = aws_iam_access_key.iam_user_key.secret
       "AWS_URL"                 = "https://${aws_cloudfront_distribution.media_distribution.domain_name}"
+      "SENTRY_DSN"              = var.sentry_dsn
+      "SENTRY_ENVIRONMENT"      = coalesce(var.sentry_environment, var.project_slug)
     }
 
     ports = {
