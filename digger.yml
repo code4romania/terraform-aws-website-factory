@@ -1,0 +1,10 @@
+telemetry: false
+projects:
+  - name: wf-deploy-a
+    dir: .
+    opentofu: false
+    terraform: true
+  - name: wf-deploy-b
+    dir: .
+    opentofu: false
+    terraform: true
