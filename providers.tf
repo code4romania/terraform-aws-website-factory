@@ -9,7 +9,8 @@ terraform {
   }
 
   cloud {
-    organization = "onghub"
+    hostname     = "terrakube-api.serval-mark.ts.net"
+    organization = "code4romania"
 
     workspaces {
       tags = [
